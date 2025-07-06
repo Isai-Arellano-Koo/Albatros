@@ -7,29 +7,29 @@ const Empresas = () => {
   const dispatch = useDispatch();
   const { lista, loading, error } = useSelector((state) => state.empresas);
 
-    // Datos hardcodeados de respaldo
+  // Datos hardcodeados de respaldo
   const empresasFallback = [
     {
+      id: 1,
       nombre: "TechNova",
       descripcion: "Empresa de innovación tecnológica.",
-      ubicacion: "Lima, Perú",
+      ciudad: "Lima, Perú",
       rubro: "Tecnología",
-      logo: "https://via.placeholder.com/150"
     },
     {
+      id: 2,
       nombre: "EcoVida",
       descripcion: "Soluciones sostenibles para el planeta.",
-      ubicacion: "Cusco, Perú",
+      ciudad: "Cusco, Perú",
       rubro: "Medio Ambiente",
-      logo: "https://via.placeholder.com/150"
     },
     {
+      id: 3,
       nombre: "FinanPlus",
       descripcion: "Consultoría financiera moderna.",
-      ubicacion: "Arequipa, Perú",
+      ciudad: "Arequipa, Perú",
       rubro: "Finanzas",
-      logo: "https://via.placeholder.com/150"
-    }
+    },
   ];
 
   useEffect(() => {
