@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold text-blue-600">Jobreando</Link>
+        <Link to="/" className="text-xl font-bold text-blue-600">Albatros</Link>
 
         {/* Botón hamburguesa en móvil */}
         <button

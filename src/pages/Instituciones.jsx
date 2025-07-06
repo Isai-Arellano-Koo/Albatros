@@ -8,7 +8,7 @@ const Instituciones = () => {
           </h1>
 
           <p className="text-lg mb-8 text-gray-700 text-center">
-            Jobreando ofrece a los centros educativos una herramienta efectiva
+            Albatros ofrece a los centros educativos una herramienta efectiva
             para orientar vocacionalmente a sus estudiantes, conectándolos con
             profesionales reales en entornos laborales auténticos.
           </p>
@@ -70,7 +70,7 @@ const Instituciones = () => {
 
           <p className="text-lg mb-8 text-gray-700 text-center">
             ¿No sabes si la carrera que te interesa es realmente para ti? En
-            Jobreando, puedes vivir un día con un profesional y tomar una
+            Albatros, puedes vivir un día con un profesional y tomar una
             decisión informada sobre tu futuro.
           </p>
 
