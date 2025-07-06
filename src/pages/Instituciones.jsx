@@ -1,4 +1,44 @@
+import { useDispatch, useSelector } from "react-redux";
+import { fetchInstituciones } from "../features/instituciones/institucionesSlice";
+import InstitucionesCard from "../components/InstitucionesCard";
+import { useEffect } from "react";
+
 const Instituciones = () => {
+  const dispatch = useDispatch()
+  const {lista, loading, error} = useSelector((state) => state.instituciones)
+
+   // Datos hardcodeados de respaldo
+  const institucionesFallback = [
+    {
+      id: 1,
+      nombre: "TechNova",
+      descripcion: "Instiucion tecnológica.",
+      ciudad: "Lima, Perú",
+      tipo: "Parroquial",
+    },
+    {
+      id: 2,
+      nombre: "EcoVida",
+      descripcion: "Soluciones sostenibles para el planeta.",
+      ciudad: "Cusco, Perú",
+      tipo: "Público",
+    },
+    {
+      id: 3,
+      nombre: "FinanPlus",
+      descripcion: "Consultoría financiera moderna.",
+      ciudad: "Arequipa, Perú",
+      tipo: "Privado",
+    },
+  ];
+
+
+  useEffect(() => {
+      dispatch(fetchInstituciones());
+    }, [dispatch]);
+
+    const institucionesMostrar = lista.length > 0 ? lista : institucionesFallback;
+
   return (
     <>
       <section className="py-16 bg-white min-h-screen">
@@ -110,6 +150,23 @@ const Instituciones = () => {
           </div>
         </div>
       </section>
+    {/* Instituciones asociadas  */}
+      <section className="py-16 bg-gray-50 min-h-screen">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Instituciones asociadas
+        </h2>
+
+        {loading && <p className="text-center">Cargando Instituciones...</p>}
+        {error && <p className="text-center text-red-500">Error: {error}</p>}
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {institucionesMostrar.map((institucion, index) => (
+            <InstitucionesCard key={index} {...institucion} />
+          ))}
+        </div>
+      </div>
+    </section>
     </>
   );
 };
