@@ -7,9 +7,37 @@ const Empresas = () => {
   const dispatch = useDispatch();
   const { lista, loading, error } = useSelector((state) => state.empresas);
 
+    // Datos hardcodeados de respaldo
+  const empresasFallback = [
+    {
+      nombre: "TechNova",
+      descripcion: "Empresa de innovación tecnológica.",
+      ubicacion: "Lima, Perú",
+      rubro: "Tecnología",
+      logo: "https://via.placeholder.com/150"
+    },
+    {
+      nombre: "EcoVida",
+      descripcion: "Soluciones sostenibles para el planeta.",
+      ubicacion: "Cusco, Perú",
+      rubro: "Medio Ambiente",
+      logo: "https://via.placeholder.com/150"
+    },
+    {
+      nombre: "FinanPlus",
+      descripcion: "Consultoría financiera moderna.",
+      ubicacion: "Arequipa, Perú",
+      rubro: "Finanzas",
+      logo: "https://via.placeholder.com/150"
+    }
+  ];
+
   useEffect(() => {
     dispatch(fetchEmpresas());
   }, [dispatch]);
+
+  const empresasMostrar = lista.length > 0 ? lista : empresasFallback;
+
   return (
     <section className="py-16 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4">
@@ -21,7 +49,7 @@ const Empresas = () => {
         {error && <p className="text-center text-red-500">Error: {error}</p>}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {lista.map((empresa, index) => (
+          {empresasMostrar.map((empresa, index) => (
             <EmpresaCard key={index} {...empresa} />
           ))}
         </div>
